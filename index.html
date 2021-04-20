@@ -11,29 +11,50 @@
       background-color: antiquewhite;
       border-bottom: 1px solid #000;
       margin-bottom: 15px;
+
     }
     
     .car {
       width: 80px;
     }
+    .carrr {
+      width: 80px;
+    }
+    .appp {
+      justify-content: space-between;
+    }
+
   </style>
 </head>
 <body>
-  <div id="app">
+  <div id="app" class="appp">
     <div class="race">
       <img src="./car.svg" alt="car" class="car">
+      <img src="./carrr.svg" alt="carrr" class="carrr">
     </div>
   </div>
 
   <script>
     /**
-     * 
-     *  ТУТ РАЗВЕРНУТЫЕ ОТВЕТЫ НА ВОПРОСЫ
+     * метод querySelector() возвращает первый элемент ( Element ) документа,
+     * который соответствует указанному селектору или группе селекторов.
+     * Если совпадений не найдено, возвращает значение null .
+     *
+     * querySelector немного медленней, чем getElementById, и может обрабатывать
+     * в результате не только id, но и классы , атрибуты и т.д.
+     *
+     * Метод Math. random() возвращает псевдослучайное число с плавающей запятой
+     *  из диапазона [0, 1) , то есть, от 0 (включительно) до 1 (но не включая 1),
+     *  которое затем можно отмасштабировать до нужного диапазона.
+     *
+     *  Mетод ceil() объекта Math вычисляет и возвращает наименьшее целое число,
+     * которое больше или равно переданному числу (округляет число вверх).
      *
      */
 
     // 
     const car = document.querySelector(".car");
+    const carrr = document.querySelector(".carrr");
 
     // 
     let positionPercent = 0;
@@ -47,7 +68,7 @@
     //
     const timer = setInterval(() => { 
       //  
-      if(positionPercent >= 100) {
+      if(positionPercent >= 95) {
         //
         clearInterval(timer);
         
@@ -56,7 +77,8 @@
       }
       //
       car.style.marginLeft = `${positionPercent}%`;
-      
+      //carrr.style.marginLeft = `${positionPercent}%`;
+
       //
       positionPercent += Math.ceil(Math.random() * 3);
       
