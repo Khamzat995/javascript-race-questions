@@ -13,25 +13,32 @@
       margin-bottom: 15px;
 
     }
-    
+    .raceTwo {
+        background-color: antiquewhite;
+        border-bottom: 1px solid #000;
+        margin-bottom: 15px;
+
+    }
+
     .car {
       width: 80px;
     }
-    .carrr {
-      width: 80px;
-    }
-    .appp {
-      justify-content: space-between;
+    .carTwo {
+        width: 80px;
     }
 
-  </style>
+     </style>
 </head>
 <body>
-  <div id="app" class="appp">
-    <div class="race">
-      <img src="./car.svg" alt="car" class="car">
-      <img src="./carrr.svg" alt="carrr" class="carrr">
-    </div>
+  <div id="app" class="app">
+        <div class="race">
+          <img src="./car.svg" alt="car" class="car">
+        </div>
+  </div>
+  <div id="appTwo"  class="appTwo">
+      <div class="raceTwo">
+              <img src="./carTwo.svg" alt="carTwo" class="carTwo">
+          </div>
   </div>
 
   <script>
@@ -54,37 +61,78 @@
 
     // 
     const car = document.querySelector(".car");
-    const carrr = document.querySelector(".carrr");
 
     // 
     let positionPercent = 0;
 
     // 
-    let time = 0;
+    let time = 0; //const second = Math.floor((ms % (1000 * 60)) / 1000); toFixt
 
     // 
-    const interval = 24;
+    const interval = 60;
 
     //
     const timer = setInterval(() => { 
       //  
-      if(positionPercent >= 95) {
+      if(positionPercent >= 90) {
         //
         clearInterval(timer);
         
         //
-        alert(`Машина доехала за ${time} миллисекунд!`)
+        alert(`Машина доехала за ${time} миллисекунд!`) //toFixed()//.Math.floor((ms/1000) % 60);
       }
       //
-      car.style.marginLeft = `${positionPercent}%`;
-      //carrr.style.marginLeft = `${positionPercent}%`;
+      car.style.marginLeft = `${positionPercent}%`; //.calc(- 80px)
+
 
       //
-      positionPercent += Math.ceil(Math.random() * 3);
-      
+      positionPercent += Math.ceil(Math.random() * 3); //Math.ceil()принимает только один параметр,
+      // значение, которое нужно округлить. значение 1,4, Math.ceil()округлим его до 2.
+      //Метод Math. random() возвращает псевдослучайное число с плавающей запятой
+    // из диапазона [0, 1) , то есть, от 0 (включительно) до 1 (но не включая 1),
+    // которое затем можно отмасштабировать до нужного диапазона.
       //
       time += interval;
-    }, interval)
+    }, interval);
+
+
+    /////////////////////////////////////////////////////////
+
+
+
+    const carTwo = document.querySelector(".carTwo");
+    //
+    let positionPercentTwo = 0;
+
+    //
+    let timeTwo = 0; //const second = Math.floor((ms % (1000 * 60)) / 1000); toFixt
+
+    //
+    const intervalTwo = 50;
+
+    //
+    const timerTwo = setInterval(() => {
+      //
+      if(positionPercentTwo >= 90) {
+        //
+        clearInterval(timerTwo);
+
+        //
+        alert(`Машина доехала за ${timeTwo} миллисекунд!`)
+      }
+      //
+      carTwo.style.marginLeft = `${positionPercentTwo}%`;
+
+
+      //
+      positionPercentTwo += Math.ceil(Math.random() * 3); //Math.ceil()принимает только один параметр,
+      // значение, которое нужно округлить. значение 1,4, Math.ceil()округлим его до 2.
+      //Метод Math. random() возвращает псевдослучайное число с плавающей запятой
+      // из диапазона [0, 1) , то есть, от 0 (включительно) до 1 (но не включая 1),
+      // которое затем можно отмасштабировать до нужного диапазона.
+      //
+      timeTwo += intervalTwo;
+    }, intervalTwo)
   
   </script>
 </body>
